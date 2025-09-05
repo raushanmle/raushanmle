@@ -17,9 +17,9 @@ Myself Raushan Kumar, an energetic professional with a comprehensive background 
 
 <table>
   <tr>
-      <td><a href="https://github.com/raushanmle"><img src="https://img.shields.io/github/followers/mlconcept.svg?label=GitHub&style=social" alt="GitHub"></a></td>
+      <td><a href="https://github.com/raushanmle"><img src="https://img.shields.io/github/followers/raushanmle.svg?label=GitHub&style=social" alt="GitHub"></a></td>
     <td><a href="https://stackoverflow.com/users/12168683/raushan-kumar"><img src="https://img.shields.io/badge/Stack_Overflow-FE7A16?style=for-the-badge&logo=stack-overflow&logoColor=white" alt="Stackoverflow"></a></td>
-    <td><a href="https://www.linkedin.com/in/mleraushan/"><img src="https://img.shields.io/badge/LinkedIn%20%7C%20mleraushan--rrr_.svg?style=social&logo=linkedin" alt="LinkedIn"></a></td>
+    <td><a href="https://www.linkedin.com/in/raushanmle/"><img src="https://img.shields.io/badge/LinkedIn%20%7C%20mleraushan--rrr_.svg?style=social&logo=linkedin" alt="LinkedIn"></a></td>
     <td><a href="mailto:raushan94306@gmail.com"><img src="https://img.shields.io/badge/Gmail--_.svg?style=social&logo=gmail" alt="Gmail"></a></td>
   </tr>
 </table>
