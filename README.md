@@ -232,7 +232,7 @@ SRM University | 2013 - 2017 | GPA: 8.93/10
 
 ### 💭 Philosophy
 
-*"Believe in yourself. This is the wheel of time and it'll change because change is permanent."*
+*"Believe in yourself. Time keeps turning, and change is inevitable."*
 
 **― An Optimistic Coder**
 
