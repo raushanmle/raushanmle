@@ -160,11 +160,14 @@ print(f"💼 {me.experience_years}+ years transforming data into business value"
 
 ## 📊 GitHub Stats
 
-<p align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=raushanmle&show_icons=true&count_private=true&hide=prs&theme=radical" alt="GitHub Stats" />
-  <img src="https://github-readme-streak-stats.herokuapp.com/?user=raushanmle&theme=radical" alt="GitHub Streak" />
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=raushanmle&layout=compact&theme=radical" alt="Top Languages" />
-</p>
+<div align="center">
+  <img src="https://github-readme-stats.vercel.app/api?username=raushanmle&show_icons=true&count_private=true&theme=radical&hide_border=true&bg_color=0D1117" alt="GitHub Stats" width="49%" />
+  <img src="https://github-readme-streak-stats.herokuapp.com/?user=raushanmle&theme=radical&hide_border=true&background=0D1117" alt="GitHub Streak" width="49%" />
+</div>
+
+<div align="center">
+  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=raushanmle&layout=compact&theme=radical&hide_border=true&bg_color=0D1117" alt="Top Languages" width="49%" />
+</div>
 
 ---
 
