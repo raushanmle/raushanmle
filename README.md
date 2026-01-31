@@ -1,6 +1,6 @@
 <div align="center">
   
-  ![banner_head.png](./banner_head.png)
+  ![banner_head.png](./assets/banner_head.png)
   
   <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=32&duration=2800&pause=2000&color=0d8ece&center=true&vCenter=true&width=940&lines=Hey+There+👋+I'm+Raushan+Kumar;Senior+Data+Scientist+%7C+8%2B+Years+Experience;LLM+%26+GenAI+Specialist+🤖;Building+Production-Grade+ML+Systems+🚀;Transforming+Data+into+Business+Impact+📊" alt="Typing SVG" />
   
@@ -160,23 +160,34 @@ print(f"💼 {me.experience_years}+ years transforming data into business value"
 
 ## 📊 GitHub Stats
 
+<!--START_SECTION:github-stats-->
 <p align="center">
-  <a href="https://github.com/raushanmle">
-    <img src="https://github-readme-stats-git-masterrstaa-rickstaa.vercel.app/api?username=raushanmle&show_icons=true&count_private=true&theme=radical&hide_border=true" alt="GitHub Stats" />
-  </a>
+  <img src="assets/github-contributions.png" alt="GitHub contributions heatmap for raushanmle" width="920" />
 </p>
 
-<p align="center">
-  <a href="https://github.com/raushanmle">
-    <img src="https://streak-stats.demolab.com?user=raushanmle&theme=radical&hide_border=true" alt="GitHub Streak" />
-  </a>
-</p>
+<div align="center">
 
-<p align="center">
-  <a href="https://github.com/raushanmle?tab=repositories">
-    <img src="https://github-readme-stats-git-masterrstaa-rickstaa.vercel.app/api/top-langs/?username=raushanmle&layout=compact&theme=radical&hide_border=true" alt="Top Languages" />
-  </a>
-</p>
+| Metric | Value |
+| --- | --- |
+| Contributions (last 12 months) | 1671 |
+| Contributions (2026) | 73 |
+| Current streak | 1 days (2026-01-31 → today) |
+| Longest streak | 10 days (2025-02-26 → 2025-03-07) |
+| Best day | 39 on 2025-03-27 |
+
+</div>
+
+<p align="center"><sub>Last updated 2026-01-31 11:11 UTC · Source: GitHub API</sub></p>
+<!--END_SECTION:github-stats-->
+
+
+
+
+
+
+
+
+
 
 ---
 
