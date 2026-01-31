@@ -6,25 +6,25 @@
   
   <p align="center">
     <a href="https://www.linkedin.com/in/raushanmle/">
-      <img src="https://img.shields.io/badge/-LinkedIn-0077B5?style=for-the-badge&logo=Linkedin&logoColor=white"/>
+      <img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white"/>
     </a>
     <a href="https://github.com/raushanmle">
-      <img src="https://img.shields.io/badge/-GitHub-181717?style=for-the-badge&logo=GitHub&logoColor=white"/>
+      <img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white"/>
     </a>
     <a href="https://stackoverflow.com/users/12168683/raushan-kumar">
-      <img src="https://img.shields.io/badge/-Stack%20Overflow-FE7A16?style=for-the-badge&logo=stack-overflow&logoColor=white"/>
+      <img src="https://img.shields.io/badge/Stack_Overflow-F58025?style=for-the-badge&logo=stackoverflow&logoColor=white"/>
     </a>
     <a href="mailto:raushanmle@gmail.com">
-      <img src="https://img.shields.io/badge/-Gmail-D14836?style=for-the-badge&logo=Gmail&logoColor=white"/>
+      <img src="https://img.shields.io/badge/Gmail-EA4335?style=for-the-badge&logo=gmail&logoColor=white"/>
     </a>
     <a href="tel:+918088566450">
-      <img src="https://img.shields.io/badge/-Phone-25D366?style=for-the-badge&logo=whatsapp&logoColor=white"/>
+      <img src="https://img.shields.io/badge/Call-25D366?style=for-the-badge&logo=phone&logoColor=white"/>
     </a>
   </p>
   
   <p align="center">
     <img src="https://komarev.com/ghpvc/?username=raushanmle&label=Profile%20views&color=0e75b6&style=flat" alt="Profile views" />
-    <img src="https://img.shields.io/badge/Experience-8%2B%20Years-blue?style=flat" alt="Experience"/>
+    <img src="https://img.shields.io/badge/Experience-8.5%2B%20Years-blue?style=flat" alt="Experience"/>
     <img src="https://img.shields.io/badge/Location-Bengaluru%2C%20India-green?style=flat" alt="Location"/>
   </p>
   
@@ -34,14 +34,14 @@
 
 ## 👨‍💻 About Me
 
-> **Senior Data Scientist** with **8+ years** of experience in Retail, CPG, and E-commerce, specializing in building scalable machine learning pipelines and deploying production-grade AI systems.
+Hi, I’m Raushan Kumar, an analytics professional with a solid background in data analysis and statistical methods. I excel at balancing multiple priorities, translating data into clear insights, and performing effectively in fast-paced environments. I offer strong problem-solving, planning, presentation, and people-management skills.
 
 ```python
 class RaushanKumar:
     def __init__(self):
         self.role = "Senior Data Scientist & ML Engineer"
         self.company = "AB InBev"
-        self.experience_years = 8
+        self.experience_years = 8.5
         self.location = "Bengaluru, India"
         
         self.core_expertise = [
@@ -69,14 +69,6 @@ class RaushanKumar:
             "certifications": "20+ Data Science certifications"
         }
     
-    def current_focus(self):
-        return [
-            "🤖 Building state-of-the-art LLM & Agentic AI solutions",
-            "🚀 Deploying production-grade ML systems at scale",
-            "📊 Driving business impact through data-driven innovation",
-            "👥 Leading teams and mentoring data scientists"
-        ]
-
 me = RaushanKumar()
 print(f"👋 Hi! I'm {me.role} at {me.company}")
 print(f"💼 {me.experience_years}+ years transforming data into business value")
