@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 """Generate reliable, local GitHub stats and inject into README.
 
-- Builds a 52-week contributions heatmap to `assets/github-contributions.png`
 - Computes summary metrics (last 12 months total, year total, streaks, best day)
 - Injects a Markdown block between README markers:
     <!--START_SECTION:github-stats--> ... <!--END_SECTION:github-stats-->
@@ -18,17 +17,12 @@ import os
 import sys
 from dataclasses import dataclass
 from pathlib import Path
-from typing import Dict, List, Tuple
+from typing import Dict, Tuple
 
-import matplotlib.pyplot as plt
-import numpy as np
 import requests
-from matplotlib.colors import BoundaryNorm, LinearSegmentedColormap
 
 USERNAME = "raushanmle"
 ROOT = Path(__file__).resolve().parent.parent
-ASSETS_DIR = ROOT / "assets"
-IMAGE_PATH = ASSETS_DIR / "github-contributions.png"
 README_PATH = ROOT / "README.md"
 MARKER_START = "<!--START_SECTION:github-stats-->"
 MARKER_END = "<!--END_SECTION:github-stats-->"
@@ -91,93 +85,6 @@ def fetch_graphql(today: dt.date) -> Dict | None:
         return {"contributions": contributions, "total": totals}
     except Exception:
         return None
-
-
-def prepare_dates(today: dt.date) -> Tuple[List[dt.date], dt.date, dt.date]:
-    """Return an exact 52-week (364-day) window ending at `today`.
-
-    We start from the last 365 days and crop the earliest days so the grid
-    becomes divisible by 7 (no padding or future dates). This ensures the
-    heatmap represents the strict last 12 months timeframe.
-    """
-    start = today - dt.timedelta(days=365 - 1)  # inclusive last 365 days
-    total_days = (today - start).days + 1  # should be 365
-
-    remainder = total_days % 7  # 365 % 7 == 1
-    if remainder != 0:
-        start = start + dt.timedelta(days=remainder)  # crop earliest days
-
-    end = today
-    total_days = (end - start).days + 1  # now 364 (52 weeks)
-    dates = [start + dt.timedelta(days=i) for i in range(total_days)]
-    return dates, start, end
-
-
-def build_heatmap(contributions: Dict[str, int], today: dt.date, last_365_total: int) -> None:
-    dates, start, end = prepare_dates(today)
-    total_days = len(dates)
-
-    weeks = total_days // 7
-    data = np.zeros((7, weeks))
-    for idx, day in enumerate(dates):
-        week = idx // 7
-        weekday = day.weekday()
-        data[weekday, week] = contributions.get(day.isoformat(), 0)
-
-    cmap = LinearSegmentedColormap.from_list(
-        "github-green",
-        ["#ebedf0", "#9be9a8", "#40c463", "#30a14e", "#216e39"],
-    )
-    bounds = [0, 1, 4, 8, 12, 100]
-    norm = BoundaryNorm(bounds, cmap.N)
-
-    fig_height = 3.2
-    fig_width = max(weeks * 0.25, 12)
-    fig, ax = plt.subplots(figsize=(fig_width, fig_height))
-    # Plot with weeks on X-axis and weekdays on Y-axis (no transpose)
-    ax.pcolormesh(data, cmap=cmap, norm=norm, edgecolors="none")
-    ax.set_xlim(0, weeks)
-    ax.set_ylim(0, 7)
-
-    ax.set_yticks([0.5, 2.5, 4.5, 6.5])
-    ax.set_yticklabels(["Mon", "Wed", "Fri", "Sun"], fontsize=8)
-
-    month_positions, month_labels, prev_month = [], [], None
-    for week in range(weeks):
-        week_start = start + dt.timedelta(days=week * 7)
-        if week_start.month != prev_month:
-            month_positions.append(week + 0.5)
-            month_labels.append(week_start.strftime("%b"))
-            prev_month = week_start.month
-
-    ax.set_xticks(month_positions)
-    ax.set_xticklabels(month_labels, fontsize=8)
-    ax.tick_params(length=0)
-    for spine in ax.spines.values():
-        spine.set_visible(False)
-
-    ax.set_title(
-        f"@{USERNAME} · Contributions past 52 weeks",
-        fontsize=12,
-        pad=12,
-    )
-    ax.set_xlabel(f"{start:%d %b %Y} → {end:%d %b %Y}", fontsize=8, labelpad=10)
-
-    # Annotate total contributions in last 12 months on the figure
-    fig.text(
-        0.995,
-        0.02,
-        f"{last_365_total} contributions · last 12 months",
-        ha="right",
-        va="bottom",
-        fontsize=9,
-        color="#216e39",
-    )
-
-    plt.tight_layout()
-    ASSETS_DIR.mkdir(parents=True, exist_ok=True)
-    fig.savefig(IMAGE_PATH, dpi=160, bbox_inches="tight")
-    plt.close(fig)
 
 
 def compute_metrics(contributions: Dict[str, int], today: dt.date, totals: Dict[str, int]) -> ContributionMetrics:
@@ -260,9 +167,6 @@ def build_markdown(metrics: ContributionMetrics, today: dt.date) -> str:
 
     return (
         f"{MARKER_START}\n"
-        f"<p align=\"center\">\n"
-        f"  <img src=\"assets/github-contributions.png\" alt=\"GitHub contributions heatmap for {USERNAME}\" width=\"920\" />\n"
-        f"</p>\n\n"
         f"<div align=\"center\">\n\n"
         f"| Metric | Value |\n"
         f"| --- | --- |\n"
@@ -301,7 +205,6 @@ def main() -> None:
 
     contributions = {e["date"]: e["count"] for e in payload["contributions"]}
     metrics = compute_metrics(contributions, today, payload.get("total", {}))
-    build_heatmap(contributions, today, metrics.total_last_365)
     snippet = build_markdown(metrics, today)
     inject_markdown(snippet)
 
