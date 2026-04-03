@@ -34,45 +34,21 @@
 
 ## 👨‍💻 About Me
 
-Hi, I’m Raushan Kumar, an analytics professional with a solid background in data analysis and statistical methods. I excel at balancing multiple priorities, translating data into clear insights, and performing effectively in fast-paced environments. I offer strong problem-solving, planning, presentation, and people-management skills.
+I’m a Senior Data Scientist & ML Engineer with 8.5+ years of experience delivering business impact through machine learning, advanced analytics, and Generative AI. I specialize in building production-grade intelligent systems that improve decision quality, accelerate operations, and scale measurable outcomes.
 
-```python
-class RaushanKumar:
-    def __init__(self):
-        self.role = "Senior Data Scientist & ML Engineer"
-        self.company = "AB InBev"
-        self.experience_years = 8.5
-        self.location = "Bengaluru, India"
-        
-        self.core_expertise = [
-            "Large Language Models (LLMs) & Generative AI",
-            "Agentic AI Systems & Autonomous ML",
-            "Production ML Pipelines & MLOps",
-            "Predictive Modeling & Statistical Analysis",
-            "NLP & Computer Vision"
-        ]
-        
-        self.tech_stack = {
-            "languages": ["Python", "SQL", "R", "Spark"],
-            "genai": ["LangChain", "LangGraph", "RAG", "AutoGen", "OpenAI", "LlamaIndex"],
-            "ml_frameworks": ["TensorFlow", "PyTorch", "Scikit-learn", "Hugging Face"],
-            "mlops": ["Docker", "Azure ML", "Databricks", "CI/CD"],
-            "databases": ["MS SQL", "MongoDB", "Hadoop", "Pinecone", "ChromaDB"],
-            "cloud": ["Azure", "Databricks"],
-            "visualization": ["Power BI", "Tableau", "Excel"]
-        }
-        
-        self.impact = {
-            "revenue_generated": "$80M+ revenue uplift",
-            "efficiency_gains": "4x-10x process acceleration",
-            "automation": "75-80% manual effort reduction",
-            "certifications": "20+ Data Science certifications"
-        }
-    
-me = RaushanKumar()
-print(f"👋 Hi! I'm {me.role} at {me.company}")
-print(f"💼 {me.experience_years}+ years transforming data into business value")
-```
+### 🧭 Professional Summary
+
+- Leading AI/ML initiatives focused on recommendation systems, forecasting, optimization, and LLM-powered automation.
+- Designing end-to-end data and MLOps pipelines across experimentation, deployment, monitoring, and lifecycle governance.
+- Translating complex business problems into robust, explainable, and scalable data products.
+- Driving cross-functional delivery with strong stakeholder alignment, clear communication, and execution discipline.
+
+### 🗺️ Current Plan
+
+- Expand enterprise-grade GenAI use cases with secure, domain-aware RAG and agentic workflows.
+- Strengthen model reliability through evaluation frameworks, guardrails, observability, and continuous feedback loops.
+- Scale reusable ML platform components to reduce time-to-production and improve engineering velocity.
+- Partner with product and business teams to prioritize high-ROI AI opportunities and measurable value realization.
 
 ### 🎯 Professional Highlights
 
@@ -161,10 +137,6 @@ print(f"💼 {me.experience_years}+ years transforming data into business value"
 ## 📊 GitHub Stats
 
 <!--START_SECTION:github-stats-->
-<p align="center">
-  <img src="assets/github-contributions.png" alt="GitHub contributions heatmap for raushanmle" width="920" />
-</p>
-
 <div align="center">
 
 | Metric | Value |
