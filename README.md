@@ -141,16 +141,17 @@ I’m a Senior Data Scientist & ML Engineer with 8.5+ years of experience delive
 
 | Metric | Value |
 | --- | --- |
-| Contributions (last 12 months) | 1822 |
-| Contributions (2026) | 587 |
-| Current streak | 74 days (2026-01-27 → today) |
-| Longest streak | 74 days (2026-01-27 → today) |
+| Contributions (last 12 months) | 1804 |
+| Contributions (2026) | 596 |
+| Current streak | 0 days (—) |
+| Longest streak | 74 days (2026-01-27 → 2026-04-10) |
 | Best day | 66 on 2026-04-09 |
 
 </div>
 
-<p align="center"><sub>Last updated 2026-04-10 05:34 UTC · Source: GitHub API</sub></p>
+<p align="center"><sub>Last updated 2026-04-11 05:05 UTC · Source: GitHub API</sub></p>
 <!--END_SECTION:github-stats-->
+
 
 
 
