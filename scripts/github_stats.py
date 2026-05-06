@@ -54,13 +54,14 @@ def fetch_graphql(today: dt.date) -> Dict | None:
     if not token:
         return None
 
-    since = (today - dt.timedelta(days=365)).isoformat()
+    # Use a 52-week (364-day) window to match GitHub's contribution graph
+    since = (today - dt.timedelta(days=364)).isoformat()
     query = {
         "query": (
             "query($login:String!,$from:DateTime!){"
             "user(login:$login){"
             "contributionsCollection(from:$from){"
-            "contributionCalendar{weeks{contributionDays{date contributionCount}}}"
+            "contributionCalendar{totalContributions weeks{contributionDays{date contributionCount}}}"
             "}"
             "}"
             "}"
@@ -75,13 +76,17 @@ def fetch_graphql(today: dt.date) -> Dict | None:
     if "errors" in data:
         return None
     try:
-        weeks = data["data"]["user"]["contributionsCollection"]["contributionCalendar"]["weeks"]
+        calendar = data["data"]["user"]["contributionsCollection"]["contributionCalendar"]
+        total_last_365 = calendar["totalContributions"]
         entries = []
-        for w in weeks:
+        for w in calendar["weeks"]:
             entries.extend(w["contributionDays"])
         # Build payload similar to public API shape
         contributions = [{"date": e["date"], "count": e["contributionCount"]} for e in entries]
-        totals = {str(today.year): sum(e["contributionCount"] for e in entries if e["date"].startswith(str(today.year)))}
+        totals = {
+            str(today.year): sum(e["contributionCount"] for e in entries if e["date"].startswith(str(today.year))),
+            "_last_365": total_last_365,  # authoritative total from GitHub
+        }
         return {"contributions": contributions, "total": totals}
     except Exception:
         return None
@@ -91,8 +96,9 @@ def compute_metrics(contributions: Dict[str, int], today: dt.date, totals: Dict[
     date_counts = {dt.date.fromisoformat(k): v for k, v in contributions.items()}
     sorted_dates = sorted(date_counts.keys())
 
-    window_start = today - dt.timedelta(days=365)
-    total_last_365 = sum(v for d, v in date_counts.items() if d >= window_start)
+    window_start = today - dt.timedelta(days=364)
+    # Use the authoritative total from GitHub GraphQL API if available, otherwise sum locally
+    total_last_365 = totals.get("_last_365") or sum(v for d, v in date_counts.items() if d >= window_start)
     total_year = totals.get(str(today.year), 0)
 
     longest = current = 0
@@ -195,12 +201,14 @@ def main() -> None:
     today = dt.date.today()
 
     payload = None
-    try:
-        payload = fetch_contrib_api()
-    except Exception:
-        # Try GraphQL fallback if token available
+    # Prefer GraphQL when a token is available — it returns the same data GitHub displays
+    # (including private contributions) and provides the authoritative totalContributions.
+    if os.environ.get("GITHUB_TOKEN"):
         payload = fetch_graphql(today)
-        if payload is None:
+    if payload is None:
+        try:
+            payload = fetch_contrib_api()
+        except Exception:
             raise
 
     contributions = {e["date"]: e["count"] for e in payload["contributions"]}
